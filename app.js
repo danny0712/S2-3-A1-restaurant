@@ -31,10 +31,12 @@ app.get('/', (req, res) => {
 //   res.render('index', { movies: movies, keyword: keyword })
 // })
 
-// app.get('/movies/:movie_id', (req, res) => {
-//   const movie = movieList.results.find((item) => item.id.toString() === req.params.movie_id)
-//   res.render('show', { movie })
-// })
+app.get('/restaurants/:restaurant_id', (req, res) => {
+
+  const restaurant = restaurantList.results.find((item) => item.id.toString() === req.params.restaurant_id)
+  console.log(restaurant)
+  res.render('show', { restaurant })
+})
 
 // start server
 app.listen(port, () => {

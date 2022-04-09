@@ -22,14 +22,14 @@ app.get('/', (req, res) => {
   res.render('index', { restaurants: restaurantList.results })
 })
 
-// //querystring
-// app.get('/search', (req, res) => {
-//   keyword = req.query.keyword
-//   const movies = movieList.results.filter((item) => {
-//     return item.title.toLowerCase().includes(req.query.keyword.toLowerCase())
-//   })
-//   res.render('index', { movies: movies, keyword: keyword })
-// })
+//querystring
+app.get('/search', (req, res) => {
+  keyword = req.query.keywords
+  const restaurants = restaurantList.results.filter((item) => {
+    return item.name.toLowerCase().includes(keyword.toLowerCase())
+  })
+  res.render('index', { restaurants, keyword })
+})
 
 app.get('/restaurants/:restaurant_id', (req, res) => {
 
